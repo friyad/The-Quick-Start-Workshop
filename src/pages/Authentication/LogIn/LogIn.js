@@ -83,7 +83,7 @@ const LogIn = () => {
                             </Form.Group>
                             <p className="text-danger">{error}</p>
 
-                            <p>New user? Please <Link to="registration">Registration</Link></p>
+                            <p>New user? Please <Link to="registration">Register</Link></p>
                             <Button variant="primary" type="submit">
                                 Log In
                             </Button>

@@ -64,7 +64,7 @@ const Registration = () => {
 
                     <div className="col-4 text-start">
                         <Form>
-                            <h2 className="m-0">Please Registere</h2>
+                            <h2 className="m-0">Please Register</h2>
                             <hr className="my-2 mb-4" />
                             <Form.Group className="mb-3" controlId="formBasicName">
                                 <Form.Label>Name</Form.Label>
