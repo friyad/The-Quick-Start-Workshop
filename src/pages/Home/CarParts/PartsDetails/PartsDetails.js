@@ -1,6 +1,7 @@
 import { useParams, useHistory } from 'react-router';
 import React from 'react';
 import useCarParts from '../../../../Hooks/useCarParts';
+import { Spinner } from 'react-bootstrap';
 
 const PartsDetails = () => {
     const { carParts, setCarParts } = useCarParts()
@@ -16,18 +17,23 @@ const PartsDetails = () => {
     return (
         <div className="py-5">
             <div className="py-5 my-5">
-                <div className="py-5 my-5 row container mx-auto">
-                    <div className="col-7 text-start pe-5">
-                        <h1>{name}</h1>
-                        <p >{description}</p>
-                        <h5>Advice for you: {advice}</h5>
-                        <h2 className="my-4">${price}</h2>
-                        <button className="btn btn-success">Place Order</button>
+                {!carParts
+                    ? <Spinner animation="border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </Spinner>
+                    : <><div className="py-5 my-5 row container mx-auto">
+                        <div className="col-7 text-start pe-5">
+                            <h1>{name}</h1>
+                            <p >{description}</p>
+                            <h5>Advice for you: {advice}</h5>
+                            <h2 className="my-4">${price}</h2>
+                            <button className="btn btn-success">Place Order</button>
+                        </div>
+                        <div className="col-5">
+                            <img className="w-100 h-100" src={imgUrl} alt="" />
+                        </div>
                     </div>
-                    <div className="col-5">
-                        <img className="w-100 h-100" src={imgUrl} alt="" />
-                    </div>
-                </div>
+                    </>}
             </div>
         </div>
     );
