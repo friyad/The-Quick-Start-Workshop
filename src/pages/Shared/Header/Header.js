@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Container, Form, FormControl, Nav, Navbar, NavDropdown, Button } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
@@ -6,11 +6,13 @@ import { useHistory, useLocation } from 'react-router';
 import logo from '../../../images/logo.png';
 import useAuth from '../../../Hooks/useAuth';
 import { HashLink } from 'react-router-hash-link';
+import HTMLHelmet from '../../HTMLHelmet/HTMLHelmet';
 
 const Header = () => {
     const { user, handleLogOut } = useAuth()
     const [headerBgColor, setHeaderBgColor] = useState(false)
     const location = useLocation()
+
 
     let bgColorOtherPage = false;
     if (location.pathname !== "/" && location.hash !== "#home" && location.pathname !== "/home") {
@@ -23,11 +25,9 @@ const Header = () => {
     }
     window.addEventListener('scroll', handleHeaderBGColor)
 
-    // console.log(user)
-
     return (
         <div style={!headerBgColor && !bgColorOtherPage ? { position: 'fixed', zIndex: '999', width: '100%', } : { position: 'fixed', zIndex: '999', width: '100%', backgroundColor: '#284b63', transition: '0.5s' }} data-aos="fade-down">
-
+            <HTMLHelmet />
             <Navbar className="py-3" expand="lg"
                 style={{ background: 'none', }}>
                 <Container>
@@ -48,6 +48,8 @@ const Header = () => {
                                 className="text-white fs-5 text-decoration-none me-4">Car Parts</Nav.Link>
                             <Nav.Link as={HashLink} to="/home#OurExperts"
                                 className="text-white fs-5 text-decoration-none me-4">Our Experts</Nav.Link>
+                            <Nav.Link as={HashLink} to="/about"
+                                className="text-white fs-5 text-decoration-none me-4">About</Nav.Link>
                         </Nav>
                         {user &&
                             <Form className="d-flex">

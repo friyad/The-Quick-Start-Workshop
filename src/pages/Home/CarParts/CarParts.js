@@ -1,10 +1,8 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useEffect } from 'react';
 import { Row } from 'react-bootstrap';
-import { useLocation } from 'react-router';
 import useCarParts from '../../../Hooks/useCarParts';
 import Parts from './Parts/Parts';
+const axios = require('axios').default;
 
 const CarParts = () => {
     const { carParts, setCarParts } = useCarParts()
@@ -15,7 +13,7 @@ const CarParts = () => {
             <Row xs={1} md={2} lg={3} className="g-1 mx-auto">
                 {carParts &&
                     carParts.map(parts => <Parts
-                        key={parts.id}
+                        key={parts._id}
                         parts={parts} />)
                 }
             </Row>

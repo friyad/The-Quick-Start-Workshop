@@ -11,6 +11,7 @@ import LogIn from './pages/Authentication/LogIn/LogIn';
 import Registration from './pages/Authentication/Registration/Registration';
 import AuthProvider from './Context/AuthProvider';
 import PrivetRoute from './PrivetRoute/PrivetRoute';
+import About from './pages/About/About';
 // ..
 AOS.init();
 
@@ -32,6 +33,9 @@ function App() {
             </Route>
             <Route path="/registration">
               <Registration />
+            </Route>
+            <Route path="/about">
+              <About />
             </Route>
 
             <Route exact path="/">
